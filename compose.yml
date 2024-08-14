@@ -1,0 +1,11 @@
+services:
+  redis:
+    image: redis
+    container_name: redis_cache
+    ports:
+      - 6379:6379
+  mongo:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - 27017:27017
