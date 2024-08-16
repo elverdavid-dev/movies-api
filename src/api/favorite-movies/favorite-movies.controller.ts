@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { FavoriteMoviesService } from './favorite-movies.service';
 import { CreateFavoriteMovieDto } from './dto/create-favorite-movie.dto';
-import { AuthGuard } from '../auth/auth.guard';
+import { AuthGuard } from '../../auth/auth.guard';
 import { ApiCookieAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
 
@@ -23,8 +23,8 @@ export class FavoriteMoviesController {
   @ApiCookieAuth()
   @ApiOperation({ summary: "get all a user's favorite movies" })
   @UseGuards(AuthGuard)
-  async getFavorites(@Param('user_id') user_id: string) {
-    return this.favoriteMoviesService.getFavorites(user_id);
+  async getFavoriteMovies(@Param('user_id') user_id: string) {
+    return this.favoriteMoviesService.getFavoriteMovies(user_id);
   }
 
   @Post()
@@ -39,11 +39,11 @@ export class FavoriteMoviesController {
   @ApiCookieAuth()
   @ApiOperation({ summary: 'delete a favorite movie' })
   @UseGuards(AuthGuard)
-  async removeFavorite(
+  async removeMovie(
     @Req() req: Request & { user: { user_id: string } },
     @Param('movie_id') movie_id: string,
   ) {
     const user_id = req.user.user_id;
-    return this.favoriteMoviesService.removeFavorite(user_id, movie_id);
+    return this.favoriteMoviesService.removeMovie(user_id, movie_id);
   }
 }

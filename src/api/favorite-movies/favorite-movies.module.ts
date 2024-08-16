@@ -6,12 +6,14 @@ import {
   FavoriteMovie,
   favoriteMovieSchema,
 } from './entities/favorite-movie.entity';
+import { HandleCacheModule } from '../../utils/handle-cache/handle-cache.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: FavoriteMovie.name, schema: favoriteMovieSchema },
     ]),
+    HandleCacheModule,
   ],
   controllers: [FavoriteMoviesController],
   providers: [FavoriteMoviesService],
