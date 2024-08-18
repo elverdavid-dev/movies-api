@@ -12,7 +12,7 @@ import { SavedMoviesModule } from './api/saved-movies/saved-movies.module';
     CacheModule.registerAsync({
       isGlobal: true,
       useFactory: async () => ({
-        store: await redisStore({ socket: { host: 'localhost', port: 6379 } }),
+        store: await redisStore({ url: process.env.URI_DB_REDIS }),
       }),
     }),
     ConfigModule.forRoot({
@@ -26,4 +26,4 @@ import { SavedMoviesModule } from './api/saved-movies/saved-movies.module';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }
