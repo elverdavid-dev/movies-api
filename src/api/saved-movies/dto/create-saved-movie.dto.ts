@@ -22,6 +22,10 @@ export class CreateSavedMovieDto {
 
   @ApiProperty()
   @IsString()
+  @IsOptional() overview?: string
+
+  @ApiProperty()
+  @IsString()
   @IsOptional()
   release_date: string;
 

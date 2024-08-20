@@ -15,6 +15,9 @@ export class FavoriteMovie {
   poster_path?: string;
 
   @Prop()
+  overview?: string
+
+  @Prop()
   release_date?: string;
 
   @Prop({ type: Number })

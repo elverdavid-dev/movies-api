@@ -15,6 +15,9 @@ export class SavedMovie {
   poster_path?: string;
 
   @Prop()
+  overview?: string
+
+  @Prop()
   release_date?: string;
 
   @Prop({ type: Number })
